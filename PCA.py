@@ -1,11 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
+import csv
 
 np.set_printoptions(precision = 5)
 
-x = np.array([[4.0, 4.2, 3.9, 4.3, 4.1], [2.0, 2.1, 2.0, 2.1, 2.2], [0.60,
-	0.59, 0.58, 0.62, 0.63]])
+reader=csv.reader(open(".csv","rb"),delimiter=',')
+a=list(reader)
+x = np.array(a).astype('double')
 
 def mean_vector(matrix):
 	return np.mean(matrix, axis=1)
