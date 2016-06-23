@@ -25,7 +25,7 @@ def scatter_matr(matrix):
 	for i in range(matrix.shape[1]):
 		scatter_matr += column_multiply(matrix[:, i] - mean_vector(matrix))
 		#print "Scatter_matr", scatter_matr
-	scatter_matr = (0.25)*scatter_matr
+	scatter_matr = (1.0/(matrix.shape[1] -1 ))*scatter_matr
 	return scatter_matr
 
 class Tupled_Eigvals:
