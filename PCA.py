@@ -80,8 +80,6 @@ print "Self.eigtuples: ", tups.eigtuples, "len of eigtuples: ", len(tups.eigtupl
 print "total: ", tups.total
 component_limit = tups.determine_components(0.95)
 
-# x = np.linspace(0, 2*np.pi, 400)
-# y = np.sin(x**2)
 
 subplots_adjust(hspace=0.000)
 number_of_subplots= component_limit + 1
