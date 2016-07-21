@@ -1,0 +1,46 @@
+--------PSEUDOCODE---------
+
+AUTHORS: SAHIL PATEL, KEVIN YAO
+INSTITUTION: COOPER UNION FOR THE ADVANCEMENT OF SCIENCE AND ART
+
+
+procedure void modify_CSV(input_csv_name, output_csv_name, company_name):
+	// modify_CSV takes an input CSV file by the name of input_csv_name,
+	// modifies it by extracting fields, and by mapping discrete, text
+	// fields to discrete, numerical fields.  The procedure has a dictionary,
+	// called mapper, that identifies whether the DAES Report signified a breach,
+	// possibility, or breach for a specific month.  For contracts that extend
+	// multiple months, breach values are averaged over corresponding months.
+
+procedure void PCA(input_csv_name, output_csv_name, threshhold):
+	// PCA procedure takes an input csv file by the name of input_csv_name,
+	// and performs the PCA procedure.  The PCA procedure is done using the
+	// scatter matrix, an estimation of the variance-covariance matrix, the
+	// the procedure outputs the number of components corresponding to the
+	// threshhold, so the eigenvalues associated with each of the components
+	// should be at least (threshhold * 100) percent of the sum of all eigenvalues
+
+procedure list<Points> dist_establish(input_csv_name, risk_level, influence_rgn,
+	eigs_list):
+	// dist_establish takes an input csv file and begins plotting data points
+	// (each row will be a data point) in the amount of dimensions given by the number
+	// of fields for the CSV file.  A Plotted point has the following properties, a core,
+	// a surrounding probability distribution, and a risk_level.  The core is a uniform
+	// probability distribution with the highest probability and the surrounding regions
+	// are gaussian distribution tails.  If a plotted point is within, for each component,
+	// the percentage of variance for the component * influence_region, of a previously
+	// plotted point.  The previously plotted point surrounding probability space is modified
+	// to reflect an overall increase in the probability of breach
+
+procedure list<list<Bins>> generateBins(input_csv_name):
+	// establish probability of falling into various bins for each component of the
+	// the input_csv_file.  Each bin has a superimposed uniform distribution.
+
+procedure int runSimulation(number_of_points, list<list<Bins> probability_values, 
+	list<Points> list_of_points):
+	// Generates n points whose components are selected according to probability_values
+	// Two "dice rolls" are used to generate a component, one to decide which bin, one to
+	// decide the value in the bin.  Each point generated gets corresponded to a point
+	// in the list_of_points, and the probability of breach vs no breach is obtained from
+	// there.  Whether a breach happens or not is determined by yet another dice roll, and the
+	// total number of breaches / total number of points will be the overall probability

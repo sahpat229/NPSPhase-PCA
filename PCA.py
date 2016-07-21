@@ -78,7 +78,7 @@ tups.sort_eigenvectors(eigs[1])
 print "After eigenvectors: ", tups.eigenvectors
 print "Self.eigtuples: ", tups.eigtuples, "len of eigtuples: ", len(tups.eigtuples)
 print "total: ", tups.total
-component_limit = tups.determine_components(0.95)
+component_limit = tups.determine_components(0.90)
 
 
 subplots_adjust(hspace=0.000)
