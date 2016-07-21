@@ -36,7 +36,7 @@ procedure list<list<Bins>> generateBins(input_csv_name):
 	// establish probability of falling into various bins for each component of the
 	// the input_csv_file.  Each bin has a superimposed uniform distribution.
 
-procedure int runSimulation(number_of_points, list<list<Bins> probability_values, 
+procedure double runSimulation(number_of_points, list<list<Bins> probability_values, 
 	list<Points> list_of_points):
 	// Generates n points whose components are selected according to probability_values
 	// Two "dice rolls" are used to generate a component, one to decide which bin, one to
@@ -44,3 +44,11 @@ procedure int runSimulation(number_of_points, list<list<Bins> probability_values
 	// in the list_of_points, and the probability of breach vs no breach is obtained from
 	// there.  Whether a breach happens or not is determined by yet another dice roll, and the
 	// total number of breaches / total number of points will be the overall probability
+
+GIVEN FILES: input_csv.csv
+EX:
+modify_CSV('input_csv.csv', 'output_csv.csv', 'LOCKHEED')
+PCA('output_csv.csv', 'output_PCA.csv', 0.95)
+list<Points> probPoints = dist_establish('output_PCA.csv', 0.35, 20)
+list<list<Bins>> probBins = generateBins('output_PCA.csv')
+breach_prob = runSimulation(20000, probBins, probPoints)
