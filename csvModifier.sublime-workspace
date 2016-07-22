@@ -1,0 +1,468 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"start",
+				"start_year〔variable〕"
+			],
+			[
+				"star",
+				"start_day〔variable〕"
+			],
+			[
+				"end",
+				"end_year〔argument〕"
+			],
+			[
+				"csvout",
+				"csvoutfile_writer〔variable〕"
+			],
+			[
+				"range",
+				"range_of_years〔variable〕"
+			],
+			[
+				"t",
+				"typeofcontractpricing"
+			],
+			[
+				"L",
+				"Link"
+			],
+			[
+				"distan",
+				"distancetables"
+			],
+			[
+				"se",
+				"sequenceNumber"
+			],
+			[
+				"listSLs",
+				"listSLs"
+			],
+			[
+				"name",
+				"name"
+			],
+			[
+				"set",
+				"set_next"
+			],
+			[
+				"new",
+				"new_node"
+			],
+			[
+				"T",
+				"T"
+			],
+			[
+				"type",
+				"typename"
+			],
+			[
+				"Scre",
+				"ScreenIndex"
+			],
+			[
+				"canvas",
+				"canvas1checkedbool"
+			],
+			[
+				"json_histo",
+				"json_historical_other"
+			],
+			[
+				"dates",
+				"datesobj"
+			],
+			[
+				"json",
+				"json_historical_other"
+			],
+			[
+				"conce",
+				"concentrationobj[\"Y"
+			],
+			[
+				"concentrationobj",
+				"concentrationobj[\"Y"
+			],
+			[
+				"concen",
+				"concentrationobj"
+			],
+			[
+				"con",
+				"concentrationobj"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 152.0,
+		"last_filter": "install pa",
+		"selected_items":
+		[
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: Add Repository",
+				"Package Control: Add Repository"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 536.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/sahpa_000/Desktop/confirm.php",
+		"/D/College/Machine Research/Code/csvModifier.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/router.py",
+		"/D/College/Machine Research/Code/PCA.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/host.pyc",
+		"/D/College/Python/swagmeout.html",
+		"/C/Users/sahpa_000/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/College/Sophomore Year/DSA/test2.cpp",
+		"/C/Users/sahpa_000/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/College/Sophomore Year/Communication Networks/Project/input.txt",
+		"/D/College/Sophomore Year/Communication Networks/Project/netsim.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/packet.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/tcpRenoSR.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/tcpTahoeSR.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/host.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/dictionarytest.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/flow.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/link.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/eventHandler.py",
+		"/D/College/Sophomore Year/DSA/data_test.cpp",
+		"/D/College/Sophomore Year/Communication Networks/Project/globals.py",
+		"/D/Games/IB History",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/host.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/packet.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/netsim.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/tcpRenoSR.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/router.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/netsim2.py",
+		"/D/College/Sophomore Year/DSA/Assignment_2.cpp",
+		"/D/College/Sophomore Year/DSA/Assignment2.cpp",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/flow.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/eventHandler.py",
+		"/D/College/Sophomore Year/Communication Networks/Project/Network-Sim/link.py",
+		"/D/College/Sophomore Year/DSA/Assignment 1.cpp",
+		"/C/Windows/System32/drivers/etc/hosts",
+		"/D/Programming/C++/8.10.cpp",
+		"/D/Programming/C++/8.1.cpp",
+		"/D/Programming/C++/8.4.cpp",
+		"/D/Programming/C++/9.4.cpp",
+		"/D/College/Sophomore Year/DSA/test.cpp",
+		"/D/College/Sophomore Year/DSA/output",
+		"/D/College/Corporate Finance.pdf",
+		"/D/Games/Metal.Gear.Solid.V.The.Phantom.Pain.Full.Unlocked/MGS_TPP.part01/MGS_TPP/mgsvtpp.exe",
+		"/D/Programming/C++/7.12.h",
+		"/D/Programming/C++/7.11.cpp",
+		"/D/Programming/C++/7.42.cpp",
+		"/D/Programming/C++/7.23.cpp",
+		"/D/Programming/C++/6.56.cpp",
+		"/D/Programming/C++/7.1.cpp",
+		"/D/Programming/C++/7.4.cpp",
+		"/D/Programming/C++/functiontest.cpp",
+		"/D/Programming/C++/6.42.cpp",
+		"/D/Programming/C++/6.33.cpp",
+		"/F/jsonny/latlon32.5_-80.0.json",
+		"/F/jsonny/latlon30.0_-92.5.json",
+		"/C/Users/sahpa_000/Downloads/static (1)/static/js/controllers.js",
+		"/C/Users/sahpa_000/Downloads/static (1)/static/partials/info.html",
+		"/C/Users/sahpa_000/Downloads/landing.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/js/controllers.js",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/partials/landing.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/partials/info.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/angular-chart.css",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/index.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/js/app.js",
+		"/F/jsonny/latlon30.0_-97.5.json",
+		"/C/Users/sahpa_000/AppData/Local/Temp/latlon_25.0_-97.5.json",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/angular-chart.js",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/Chart.js",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION2/static/js/controllers.js",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION2/static/partials/landing.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION2/static/partials/info.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/info.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION2/static/info.html",
+		"/C/Users/sahpa_000/Documents/GitHub/Polldentify/static/history.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION2/static/index.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/js/controllers.js",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/partials/info.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/partials/landing.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/index.html",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/js/app.js",
+		"/D/Programming/C++/pointertest.cpp",
+		"/C/Users/sahpa_000/Documents/GitHub/POLLUTION/static/history.html"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"head",
+			"0.25",
+			"HOST",
+			"getAndUpdate",
+			"getAnd",
+			"windowList",
+			"Reno",
+			"TCP done",
+			"TCP is done",
+			"tahoe",
+			"heappush",
+			"sendDSDV",
+			"print",
+			"TCP Tahoe",
+			"TCP reno",
+			"append",
+			"tcpFinished",
+			"hostList",
+			"recvPack",
+			"recvPacket",
+			"self.state",
+			"tcpFinished",
+			"no TCP",
+			"send_to",
+			"false",
+			"heapq",
+			"False",
+			"True",
+			"sendDSDV",
+			"sendPacket",
+			"ipHeader",
+			"packet",
+			"false",
+			"sendPacket",
+			"false",
+			"setLink",
+			"true",
+			"distance",
+			"cost",
+			"sendDSDV",
+			"heap",
+			"rate",
+			"recv",
+			"push",
+			"heap",
+			"false",
+			"ttd",
+			"h",
+			"ttd",
+			"eventQueue",
+			"heap",
+			"packet",
+			"recv",
+			"send",
+			"packet",
+			"ack",
+			"size",
+			"recv",
+			"heap",
+			"heapq",
+			"link",
+			"heapq",
+			"link",
+			"doNext",
+			"heappush",
+			"windowStart",
+			"timeout",
+			"handler",
+			"TCP",
+			"bytes",
+			"dataAmt",
+			"size",
+			"handler",
+			"Sls",
+			"button",
+			"canvas1checked",
+			"object.getkeys",
+			"LABEL",
+			"post",
+			"line",
+			"values",
+			"vm.json",
+			"test",
+			"div class = \"row\"><br></div>",
+			"nv",
+			"chart",
+			"line-legend",
+			"LINE",
+			"vm",
+			"form",
+			"ng",
+			"HADSDFS",
+			"initMap",
+			"form",
+			"forms",
+			"vm.initi",
+			"combine"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 24.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "csvModifier.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 122.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
