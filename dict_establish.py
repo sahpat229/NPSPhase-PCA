@@ -12,7 +12,10 @@ class Point:
 	'''
 
 	def wariness_to_core_probability_and_scaling(wariness):
-		pass
+		core_probability = 0
+		// core_probability = func(wariness)
+		scaling = 1.0 - core_probability
+		return (core_probability, scaling)
 
 
 	'''
@@ -20,8 +23,9 @@ class Point:
 	fields array along with their respective eigenvalue fractions
 	'''
 
-	def __init__(self, wariness, influence_region, fields_array_with_eigs_percentages, core_radius):
+	def __init__(self, wariness, influence_region, fields_array_with_eigs_percentages, core_radius, breach_value):
 		(self.core_probability, self.core_scaling) = wariness_to_core_radius(wariness)
+		self.core_probability * (breach_value / 2)
 		self.fields_and_eigs = fields_array_with_eigs_percentages
 		self.core_radius = core_radius
 		self.core_fields_radii = []
@@ -32,7 +36,7 @@ class Point:
 		for tuple in self.fields_and_eigs:
 			self.core_fields_radii.append(tuple[1] *  self.core_radius)
 			self.center.append(tuple[0])
-			self.influence_region_radii.append(tuple[1] * self.core_radius)
+			self.influence_region_radii.append(tuple[1] * self.influnece_region)
 
 	'''
 	checks if argument fields_iter falls within this instance's influence region
@@ -63,6 +67,15 @@ class Point:
 		exponent = -1 * ((x - mu)**2) / (2*sigma_squared)
 		return mu_value * math.exp(exponent)
 
+
+	'''
+	Generator that will increase the core_probability
+	Should be called when a new point falls in a previous point's influence region
+	'''
+	def increase_core_probability(self, breach_value):
+		self.core_probability += (self.core_probability * (breach_value / 2) * self.core_scaling))
+
+
 	'''
 	returns the probability of breach at a certain point demarcated by
 	component_value on the axis demarcated by component_number
@@ -71,6 +84,7 @@ class Point:
 	with Gaussian-like tails, Each tail has a mu = core_boundary, and 
 	sigma_squared = influence_region_bndry
 	'''
+
 
 	def probability(self, other_fields_arr):
 
@@ -81,16 +95,48 @@ class Point:
 			right_core_side = self.center[component_number] + self.core_fields_radii[component_number]
 			left_influence_side = self.center[component_number] - self.influence_region_radii[component_number]
 			right_influence_side = self.center[component_number] + self.influence_region_radii[component_number]
-			left_sigma_squared = abs(left_core_side - left_influence_side)
-			right_sigma_squared = abs(right_influence_side - right_core_side)
+			left_sigma = abs(left_core_side - left_influence_side)
+			right_sigma = abs(right_influence_side - right_core_side)
 
 			if left_core_side <= component_value <= right_core_side:
 				total_prob += self.core_probability
 
 			elif component_value < left_core_side:
-				total_prob += probability_dist(left_core_side)
+				total_prob += probability_dist(self.core_probability ,left_core_side, left_sigma**2)
 
 			elif component_value > right_core_side:
-				total_prob += probability_dist(right_core_side)
+				total_prob += probability_dist(self.core_probability, right_core_side, right_sigma**2)
 
-		total_prob / len(other_fields_arr)
+		return total_prob / len(other_fields_arr)
+
+'''
+
+Establishes a distribution space for the CSV file demarcated by input_csv_name
+input_csv_name should be a csv file that was generated through PCA, as each components
+eigenvalues will be used with it
+
+'''
+
+
+
+def dist_establish(input_csv_name, wariness, influence_region, core_radius):
+	csv_reader = csv.reader(input_csv_name)
+	list_of_points = []
+	initial_row = csv_reader[0]
+	breach_value = initial_row[len(initial_row) - 1]
+	point = Point(wariness, influence_region, initial_row, core_radius, breach_value)
+
+
+
+	for i in range(1, len(csv_reader)):
+
+		row = csv_reader[i]
+		breach_value = row[len(row) - 1]
+		components = row.remove(breach_probability)
+		for point in list_of_points:
+			if point.influence_check(components):
+				point.increase_core_probability(breach_value)
+				break
+		else:
+			point = Point(wariness, influence_region, components, core_radius, breach_value)
+			list_of_points.append(point)
