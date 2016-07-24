@@ -120,23 +120,22 @@ eigenvalues will be used with it
 
 
 def dist_establish(input_csv_name, wariness, influence_region, core_radius):
-	csv_reader = csv.reader(input_csv_name)
-	list_of_points = []
-	initial_row = csv_reader[0]
-	breach_value = initial_row[len(initial_row) - 1]
-	point = Point(wariness, influence_region, initial_row, core_radius, breach_value)
+	with open(input_csv_name, 'r'):		
+		csv_reader = csv.reader(input_csv_name)
+		list_of_points = []
+		initial_row = csv_reader[0]
+		breach_value = initial_row[len(initial_row) - 1]
+		point = Point(wariness, influence_region, initial_row, core_radius, breach_value)
 
+		for i in range(1, len(csv_reader)):
 
-
-	for i in range(1, len(csv_reader)):
-
-		row = csv_reader[i]
-		breach_value = row[len(row) - 1]
-		components = row.remove(breach_probability)
-		for point in list_of_points:
-			if point.influence_check(components):
-				point.increase_core_probability(breach_value)
-				break
-		else:
-			point = Point(wariness, influence_region, components, core_radius, breach_value)
-			list_of_points.append(point)
+			row = csv_reader[i]
+			breach_value = row[len(row) - 1]
+			components = row.remove(breach_probability)
+			for point in list_of_points:
+				if point.influence_check(components):
+					point.increase_core_probability(breach_value)
+					break
+			else:
+				point = Point(wariness, influence_region, components, core_radius, breach_value)
+				list_of_points.append(point)
