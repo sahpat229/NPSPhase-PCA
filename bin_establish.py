@@ -13,7 +13,7 @@ class Bin:
 	def random_sample(self):
 		return np.random.normal(loc=self.center, scale=abs(self.center - self.left_boundary))
 
-def bin_establish(input_csv_name):
+def bin_establish(input_csv_name, number_of_bins):
 	with open(input_csv_name, 'r') as csv_file:
 		csv_reader = csv.reader(csv_file)
 		iter = (islice(csv_reader, 0, None))	
@@ -31,5 +31,14 @@ def bin_establish(input_csv_name):
 					list_min_max[index]['min'] = float(row[index])
 				elif float(row[index]) > float(list_min_max[index]['max']):
 					list_min_max[index]['max'] = float(row[index])
-	list_min_max
-
+	list_of_list_of_bins = []
+	for min_max in list_min_max:
+		list_of_bins = []
+		total_length = min_max['max'] - min_max['min']
+		bin_length = total_length / number_of_bins
+		current_length = min_max['min']
+		for i in range(number_of_bins):
+			list_of_bins.append(Bin(current_length, current_length+bin_length))
+			current_length += bin_length
+		list_of_list_of_bins.append(list_of_bins)
+	return list_of_list_of_bins
