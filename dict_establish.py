@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from pylab import *
 import csv
 import math
+from itertools import islice
 
 class Point:
 
@@ -120,16 +121,15 @@ eigenvalues will be used with it
 
 
 def dist_establish(input_csv_name, wariness, influence_region, core_radius):
-	with open(input_csv_name, 'r'):		
-		csv_reader = csv.reader(input_csv_name)
+	with open(input_csv_name, 'r') as csv_file:		
+		csv_reader = csv.reader(csv_file)
 		list_of_points = []
-		initial_row = csv_reader[0]
+		iter = islice(csv_reader, 0, None)
+		initial_row = next(iter)
 		breach_value = initial_row[len(initial_row) - 1]
 		point = Point(wariness, influence_region, initial_row, core_radius, breach_value)
 
-		for i in range(1, len(csv_reader)):
-
-			row = csv_reader[i]
+		for row in iter:
 			breach_value = row[len(row) - 1]
 			components = row.remove(breach_probability)
 			for point in list_of_points:
