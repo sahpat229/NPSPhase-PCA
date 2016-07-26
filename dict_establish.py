@@ -14,7 +14,7 @@ class Point:
 
 	def wariness_to_core_probability_and_scaling(wariness):
 		core_probability = 0
-		// core_probability = func(wariness)
+		# core_probability = func(wariness)
 		scaling = 1.0 - core_probability
 		return (core_probability, scaling)
 
@@ -26,7 +26,7 @@ class Point:
 
 	def __init__(self, wariness, influence_region, fields_array_with_eigs_percentages, core_radius, breach_value):
 		(self.core_probability, self.core_scaling) = wariness_to_core_radius(wariness)
-		self.core_probability * (breach_value / 2)
+		self.core_probability *= (breach_value / 2)
 		self.fields_and_eigs = fields_array_with_eigs_percentages
 		self.core_radius = core_radius
 		self.core_fields_radii = []
