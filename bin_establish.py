@@ -64,3 +64,6 @@ def test_bin_establish(input_csv_name, number_of_bins):
 		for bin in list_of_bins:
 			print bin.left_boundary, bin.right_boundary
 		print "---------------------------------------------------------------"
+
+def generateMCPoints(list_of_list_of_bins):
+	

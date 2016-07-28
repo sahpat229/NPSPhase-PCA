@@ -24,10 +24,10 @@ class Point:
 	fields array along with their respective eigenvalue fractions
 	'''
 
-	def __init__(self, wariness, influence_region, fields_array_with_eigs_percentages, core_radius, breach_value):
+	def __init__(self, wariness, influence_region, fields_array_with_eig_fractions, core_radius, breach_value):
 		(self.core_probability, self.core_scaling) = wariness_to_core_radius(wariness)
 		self.core_probability *= (breach_value / 2)
-		self.fields_and_eigs = fields_array_with_eigs_percentages
+		self.fields_and_eigs = fields_array_with_eig_fractions
 		self.core_radius = core_radius
 		self.core_fields_radii = []
 		self.center = []
@@ -111,31 +111,35 @@ class Point:
 		return total_prob / len(other_fields_arr)
 
 '''
-
 Establishes a distribution space for the CSV file demarcated by input_csv_name
 input_csv_name should be a csv file that was generated through PCA, as each components
 eigenvalues will be used with it
 
 '''
 
-
-
 def dist_establish(input_csv_name, wariness, influence_region, core_radius):
 	with open(input_csv_name, 'r') as csv_file:		
 		csv_reader = csv.reader(csv_file)
 		list_of_points = []
 		iter = islice(csv_reader, 0, None)
-		initial_row = next(iter)
+		eigenvalue_fractions = map(int, next(iter))
+		initial_row = map(int, next(next(iter)))
 		breach_value = initial_row[len(initial_row) - 1]
-		point = Point(wariness, influence_region, initial_row, core_radius, breach_value)
+		initial_row.remove(breach_value)
+		intiial_fields_array_with_eig_fractions = zip(initial_row, eigenvalue_fractions)
+		point = Point(wariness, influence_region, initial_fields_array_with_eig_fractions, core_radius, breach_value)
 
 		for row in iter:
+			row = int(row)
 			breach_value = row[len(row) - 1]
-			components = row.remove(breach_probability)
+			row.remove(breach_value)
 			for point in list_of_points:
-				if point.influence_check(components):
+				if point.influence_check(row):
 					point.increase_core_probability(breach_value)
 					break
 			else:
-				point = Point(wariness, influence_region, components, core_radius, breach_value)
+				fields_array_with_eig_fractions = zip(eigenvalue_fractions, row)
+				point = Point(wariness, influence_region, fields_array_with_eig_fractions, core_radius, breach_value)
 				list_of_points.append(point)
+
+		return list_of_points
