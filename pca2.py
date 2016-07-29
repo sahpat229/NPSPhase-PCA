@@ -53,3 +53,12 @@ for i,v in enumerate(xrange(number_of_subplots)):
     plt.bar(x, y, color='r')
 
 plt.show()
+
+#create "outfile.txt" file
+    
+np.savetxt("outfile.txt", (var,) )
+target = open('outfile.txt', "a")
+for i in range(16):
+    line = target.write("component%s " %(i+1))
+line = target.write("breach")
+target.close()
