@@ -7,7 +7,7 @@ from sklearn.preprocessing import scale
 
 
 #Load data set
-data = pd.read_csv('placesrated2.csv')
+data = pd.read_csv('filename.csv')
 
 #convert it to numpy arrays
 X=data.values
@@ -31,7 +31,6 @@ print ("Cumulative Variance explains:", var1)
 
 plt.plot(var1)
 
-9
 
 #Looking at above plot I'm taking 30 variables
 pca = PCA(n_components=7)
