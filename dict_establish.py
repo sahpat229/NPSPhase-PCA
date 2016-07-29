@@ -125,14 +125,14 @@ def dist_establish(input_csv_name, wariness, influence_region, core_radius):
 		eigenvalue_fractions = map(int, next(iter))
 		initial_row = map(int, next(next(iter)))
 		breach_value = initial_row[len(initial_row) - 1]
-		initial_row.remove(breach_value)
+		del initial_row[-1]
 		intiial_fields_array_with_eig_fractions = zip(initial_row, eigenvalue_fractions)
 		point = Point(wariness, influence_region, initial_fields_array_with_eig_fractions, core_radius, breach_value)
 
 		for row in iter:
 			row = int(row)
 			breach_value = row[len(row) - 1]
-			row.remove(breach_value)
+			del row[-1]
 			for point in list_of_points:
 				if point.influence_check(row):
 					point.increase_core_probability(breach_value)
