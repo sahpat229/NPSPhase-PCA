@@ -115,6 +115,9 @@ Establishes a distribution space for the CSV file demarcated by input_csv_name
 input_csv_name should be a csv file that was generated through PCA, as each components
 eigenvalues will be used with it
 
+Returns both list_of_points and eigenvalue_fractions so that mcsim.py can use eigenvalue_fractions
+when doing a weighted distance calculation
+
 '''
 
 def dist_establish(input_csv_name, wariness, influence_region, core_radius):
@@ -142,4 +145,4 @@ def dist_establish(input_csv_name, wariness, influence_region, core_radius):
 				point = Point(wariness, influence_region, fields_array_with_eig_fractions, core_radius, breach_value)
 				list_of_points.append(point)
 
-		return list_of_points
+		return (list_of_points, eigenvalue_fractions)

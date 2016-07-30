@@ -26,7 +26,7 @@ def bin_establish(input_csv_name, number_of_bins):
 		csv_reader = csv.reader(csv_file)
 		iter = islice(csv_reader, 0, None)	
 		eig_values = next(iter)
-		print "LENGTH: ", len(eig_values)
+		#print "LENGTH: ", len(eig_values)
 		del eig_values[-1]
 		list_min_max = []
 
@@ -37,21 +37,21 @@ def bin_establish(input_csv_name, number_of_bins):
 		next(iter)
 		first_row = next(iter)
 		del first_row[-1]
-		print "FIRST ROW: ", first_row
+		#print "FIRST ROW: ", first_row
 		for index in range(0, len(first_row)):
 			list_min_max[index]['min'] = float(first_row[index])
 			list_min_max[index]['max'] = float(first_row[index])
 
 		for row in iter:
 			del row[-1]
-			print "ROW: ", row
+			#print "ROW: ", row
 			for index in range(0, len(row)):
 				if float(row[index]) < float(list_min_max[index]['min']):
 					list_min_max[index]['min'] = float(row[index])
 				elif float(row[index]) > float(list_min_max[index]['max']):
 					list_min_max[index]['max'] = float(row[index])
 
-		print "LIST MINMAX: ", list_min_max
+		#print "LIST MINMAX: ", list_min_max
 	list_of_list_of_bins = []
 
 	for min_max in list_min_max:
