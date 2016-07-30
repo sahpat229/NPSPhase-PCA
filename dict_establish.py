@@ -5,19 +5,19 @@ import csv
 import math
 from itertools import islice
 
+'''
+Wariness dictates the starting probability of the core and the geometric scaling
+of the core
+'''
+
+def wariness_to_core_probability_and_scaling(wariness):
+	core_probability = 0.25
+	# core_probability = func(wariness)
+	scaling = 1.0 - core_probability
+	return (core_probability, scaling)
+
+
 class Point:
-
-	'''
-	Wariness dictates the starting probability of the core and the geometric scaling
-	of the core
-	'''
-
-	def wariness_to_core_probability_and_scaling(wariness):
-		core_probability = 0
-		# core_probability = func(wariness)
-		scaling = 1.0 - core_probability
-		return (core_probability, scaling)
-
 
 	'''
 	A point is initialized with a wariness level, and influence region level, and a zipped
@@ -25,7 +25,7 @@ class Point:
 	'''
 
 	def __init__(self, wariness, influence_region, fields_array_with_eig_fractions, core_radius, breach_value):
-		(self.core_probability, self.core_scaling) = wariness_to_core_radius(wariness)
+		(self.core_probability, self.core_scaling) = wariness_to_core_probability_and_scaling(wariness)
 		self.core_probability *= (breach_value / 2)
 		self.fields_and_eigs = fields_array_with_eig_fractions
 		self.core_radius = core_radius
@@ -34,10 +34,11 @@ class Point:
 		self.influence_region = influence_region
 		self.influence_region_radii = []
 
+		print "self.fields_and_eigs: ", self.fields_and_eigs
 		for tuple in self.fields_and_eigs:
 			self.core_fields_radii.append(tuple[1] *  self.core_radius)
 			self.center.append(tuple[0])
-			self.influence_region_radii.append(tuple[1] * self.influnece_region)
+			self.influence_region_radii.append(tuple[1] * self.influence_region)
 
 	'''
 	checks if argument fields_iter falls within this instance's influence region
@@ -52,6 +53,7 @@ class Point:
 
 	def influence_check(self, other_fields_arr):
 		for (this_inf_radii, this_center, other_fields) in zip(self.influence_region_radii, self.center, other_fields_arr):
+			print this_inf_radii, this_center, other_fields
 			if (other_fields > (this_center + this_inf_radii)) or (other_fields < (this_center - this_inf_radii)):
 				return False
 		return True
@@ -74,7 +76,8 @@ class Point:
 	Should be called when a new point falls in a previous point's influence region
 	'''
 	def increase_core_probability(self, breach_value):
-		self.core_probability += (self.core_probability * (breach_value / 2) * self.core_scaling))
+		print "INCREASED"
+		self.core_probability += (self.core_probability * (breach_value / 2) * self.core_scaling)
 
 
 	'''
@@ -125,23 +128,28 @@ def dist_establish(input_csv_name, wariness, influence_region, core_radius):
 		csv_reader = csv.reader(csv_file)
 		list_of_points = []
 		iter = islice(csv_reader, 0, None)
-		eigenvalue_fractions = map(int, next(iter))
-		initial_row = map(int, next(next(iter)))
+		eigenvalue_fractions = next(iter)
+		del eigenvalue_fractions[-1]
+		eigenvalue_fractions = map(float, eigenvalue_fractions)
+		next(iter)
+		initial_row = map(float, (next(iter)))
 		breach_value = initial_row[len(initial_row) - 1]
 		del initial_row[-1]
-		intiial_fields_array_with_eig_fractions = zip(initial_row, eigenvalue_fractions)
+		initial_fields_array_with_eig_fractions = zip(initial_row, eigenvalue_fractions)
 		point = Point(wariness, influence_region, initial_fields_array_with_eig_fractions, core_radius, breach_value)
-
+		list_of_points.append(point)
 		for row in iter:
-			row = int(row)
+
+			row = map(float, row)
 			breach_value = row[len(row) - 1]
 			del row[-1]
+			print "ROW: ", row
 			for point in list_of_points:
 				if point.influence_check(row):
 					point.increase_core_probability(breach_value)
 					break
 			else:
-				fields_array_with_eig_fractions = zip(eigenvalue_fractions, row)
+				fields_array_with_eig_fractions = zip(row, eigenvalue_fractions)
 				point = Point(wariness, influence_region, fields_array_with_eig_fractions, core_radius, breach_value)
 				list_of_points.append(point)
 
