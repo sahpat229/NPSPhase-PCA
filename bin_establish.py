@@ -71,13 +71,16 @@ def bin_establish(input_csv_name, number_of_bins):
 		iter = islice(csv_reader, 0, None)
 		next(iter)
 		next(iter)
-		next(iter)
 		for row in iter:
 			del row[-1]
+			row = map(float, row)
 			for index in range(0, len(row)):
 				current_item = row[index]
 				for bin in list_of_list_of_bins[index]:
-					if (current_item >= bin.left_boundary) and (current_item =< bin.right_boundary):
+					#print "current: ", current_item, "bin left: ", bin.left_boundary, "bin right: ", bin.right_boundary
+					#print bin.left_boundary <= current_item <= bin.right_boundary
+					if bin.left_boundary <= current_item <= bin.right_boundary:
+						#print "INCREASED: "
 						bin.count += 1
 						break
 
