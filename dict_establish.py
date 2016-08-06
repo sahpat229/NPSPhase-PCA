@@ -79,6 +79,27 @@ class Point:
 		self.core_probability += (self.core_probability_static * (breach_value / 2.0) * self.core_scaling)
 		#print "NEW PROB: ", self.core_probability
 
+	'''
+	Function for plotter
+	Returns the probability of "X" against this point given a component number
+	'''
+	def probability_component(self, component_number, x):
+		left_core_side = self.center[component_number] - self.core_fields_radii[component_number]
+		right_core_side = self.center[component_number] + self.core_fields_radii[component_number]
+		left_influence_side = self.center[component_number] - self.influence_region_radii[component_number]
+		right_influence_side = self.center[component_number] + self.influence_region_radii[component_number]
+		left_sigma = abs(left_core_side - left_influence_side)
+		right_sigma = abs(right_influence_side - right_core_side)
+
+		if left_core_side <= x <= right_core_side:
+			return self.core_probability
+
+		elif x < left_core_side:
+			return probability_dist(self.core_probability, left_core_side, left_sigma**2, x)
+
+		elif x > right_core_side:
+			return probability_dist(self.core_probability, right_core_side, right_sigma**2, x)
+
 
 	'''
 	returns the probability of breach at a certain point demarcated by
