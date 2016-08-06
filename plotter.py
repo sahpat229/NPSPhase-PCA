@@ -11,7 +11,7 @@ list_of_points is the list of Points generated from dist_establish
 of points to generate in the evenly spaced interval
 """
 
-def plot_distribution(list_of_points, fineness):
+def plot_point_distribution(list_of_points, fineness):
 	initial_point = list_of_points[0]
 	end_range_of_center = len(initial_point.center)
 
@@ -43,13 +43,38 @@ def plot_distribution(list_of_points, fineness):
 			list_of_list_of_xcoords.append(list_of_xcoords)
 			list_of_list_of_ycoords.append(list_of_ycoords)
 
-		print "MIN:", min, "MAX:", max
+		#print "MIN:", min, "MAX:", max
 		current_ax.set_xlim(min, max)
 		for (this_list_of_xcoords, this_list_of_ycoords) in zip(list_of_list_of_xcoords, list_of_list_of_ycoords):
 			current_ax.plot(this_list_of_xcoords, this_list_of_ycoords)
 
 		current_ax.set_title(str(component_index))
 
+	plt.subplots_adjust(hspace=0.3)
+	plt.show()
+
+
+def plot_bin_distribution(list_of_list_of_bins):
+
+	plt.rc('axes', prop_cycle=(cycler('color', ['r', 'g', 'b', 'y'])))
+
+	fig, axes = plt.subplots(nrows=len(list_of_list_of_bins))
+	for index in range(len(list_of_list_of_bins)):
+		list_of_bins = list_of_list_of_bins[index]
+		left = range(len(list_of_bins))
+		current_ax = axes[index]
+		width = 1
+
+		list_of_heights = [bin_instance.count for bin_instance in list_of_bins]
+		current_ax.set_title(str(index))
+		current_ax.bar(left=left, height=list_of_heights)
 
 	plt.subplots_adjust(hspace=0.3)
 	plt.show()
+
+
+'''
+Show plot
+'''
+def show():
+	plt.show
